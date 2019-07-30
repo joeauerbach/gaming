@@ -3,6 +3,12 @@ import math
 min = 1
 max = 6
 
+def total(roll):
+    return sum(sorted(roll, reverse=True)[:3])
+
+def modifier(roll):
+    return math.floor((sum(sorted(roll, reverse=True)[:3])-10)/2)
+
 print ("Roll them bones!")
 print ("Here's your depressing stats.")
 one = [random.randint(min, max) for i in range (4)]
@@ -13,9 +19,10 @@ five = [random.randint(min, max) for i in range (4)]
 six = [random.randint(min, max) for i in range (4)]
 
 
-print ("Strength:", sum(sorted(one, reverse=True)[:3]), "[", math.floor((sum(sorted(one, reverse=True)[:3])-10)/2),"]")
-print ("Dexterity:", sum(sorted(two, reverse=True)[:3]), "[", math.floor((sum(sorted(two, reverse=True)[:3])-10)/2),"]")
-print ("Constitution:", sum(sorted(three, reverse=True)[:3]), "[", math.floor((sum(sorted(three, reverse=True)[:3])-10)/2),"]")
-print ("Intelligence:", sum(sorted(four, reverse=True)[:3]), "[", math.floor((sum(sorted(four, reverse=True)[:3])-10)/2),"]")
-print ("Wisdom:", sum(sorted(five, reverse=True)[:3]), "[", math.floor((sum(sorted(five, reverse=True)[:3])-10)/2),"]")
-print ("Charisma:",sum(sorted(six, reverse=True)[:3]), "[", math.floor((sum(sorted(six, reverse=True)[:3])-10)/2),"]")
+print ("Strength:", total(one), "[", modifier(one),"]")
+print ("Dexterity:", total(two), "[", modifier(two),"]")
+print ("Constitution:", total(three), "[", modifier(three),"]")
+print ("Intelligence:", total(four), "[", modifier(four),"]")
+print ("Wisdom:", total(five), "[", modifier(five),"]")
+print ("Charisma:",total(six), "[", modifier(six),"]")
+
